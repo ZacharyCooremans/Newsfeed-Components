@@ -114,32 +114,50 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
-function articleMaker ({articleObj}) {
+
+
+const article = document.querySelector('.articles')
+function articleMaker ( {title, date, firstParagraph, secondParagraph, thirdParagraph} ) {
 
   const article = document.createElement('div');
-  article.classList.add('article');
-
-  const title = document.createElement('h2');
-
+  const header = document.createElement('h2');
   const p = document.createElement('p');
-  p.classList.add('date');
-
-  const expand = document.createElement('span');
-  expand.classList.add('expandButton');
-  expand.addEventListener('click', (event) =>{
-    aritlce.classList.toggle('article-open')
-  })
-
-  article.appendChild(title);
-  article.appendChild(p);
-  article.appendChild(expand);
-
-  article.textContent = articleObj;
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const expandButton = document.createElement('span');
   
+
+  article.classList.add('article');
+  p.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  article.appendChild(header);
+  article.appendChild(p);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expandButton);
+
+
+  //article.textContent = articleObj['title'];
+  header.textContent = title
+  p.textContent = date
+  p1.textContent = firstParagraph
+  p2.textContent = secondParagraph
+  p3.textContent = thirdParagraph
+  expandButton.textContent = '+';
+  
+
+  expandButton.addEventListener('click', (event) =>{
+    article.classList.toggle('article-open');
+  });
   
   return article
 }
-data.forEach((articleDataObj) =>{
-  const panel = articleMaker(articleDataObj);
-  
-})
+console.log(articleMaker(data[0]));
+
+ data.forEach((articleDataObj) =>{
+   const panel = articleMaker(articleDataObj);
+    article.appendChild(panel);
+ });
