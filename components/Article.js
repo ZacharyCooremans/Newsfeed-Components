@@ -117,7 +117,7 @@ const data = [
 
 
 const article = document.querySelector('.articles')
-function articleMaker ( {title, date, firstParagraph, secondParagraph, thirdParagraph} ) {
+function articleMaker ( articleObj ) {
 
   const article = document.createElement('div');
   const header = document.createElement('h2');
@@ -141,11 +141,11 @@ function articleMaker ( {title, date, firstParagraph, secondParagraph, thirdPara
 
 
   //article.textContent = articleObj['title'];
-  header.textContent = title
-  p.textContent = date
-  p1.textContent = firstParagraph
-  p2.textContent = secondParagraph
-  p3.textContent = thirdParagraph
+  header.textContent = articleObj['title']
+  p.textContent = articleObj['date'];
+  p1.textContent = articleObj['firstParagraph']
+  p2.textContent = articleObj['secondParagraph']
+  p3.textContent = articleObj['thirdParagraph']
   expandButton.textContent = '+';
   
 
