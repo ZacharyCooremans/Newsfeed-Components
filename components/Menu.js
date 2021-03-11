@@ -31,7 +31,8 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
-//const theMenu = document.querySelector('menu-button'); 
+const header = document.querySelector('.header')
+
 function menuMaker (menuArray){
 
   const menu = document.createElement('div');
@@ -42,11 +43,12 @@ function menuMaker (menuArray){
   // const techTrends = document.createElement('li');
   // const music = document.createElement('li');
   // const logOut = document.createElement('li');
+
   menuArray.forEach(item => {
     let li = document.createElement('li');
     li.textContent = item;
     holder.appendChild(li);
-  })
+  });
 
   menu.appendChild(holder);
   // holder.appendChild(student);
@@ -57,16 +59,18 @@ function menuMaker (menuArray){
   // holder.appendChild(logOut);
 
   menu.classList.add('menu-button');
+
   menu.addEventListener('click', (event) =>{
     menu.classList.toggle('menu--open')
-  })
+  });
 
 
   return menu
 }
 console.log(menuMaker(menuItems));
 
-menuItems.forEach((menuArray) =>{
-  const panel = articleMaker(menuArray);
-   article.appendChild(panel);
-});
+console.log(header)
+//   menuItems.forEach((menuDataObj) =>{
+//    const panel = menuMaker(menuDataObj);
+//     header.appendChild(panel);
+//  });
